@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Kislota va ishqor reaksiyasi — ZiyoLab</title>
+<meta name="description" content="ZiyoLab virtual laboratoriyasida kislota va ishqor reaksiyasi tajribasi — miqdorlarni o‘zgartirib, aralashma pH natijasini kuzating.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lab.css">
+<link rel="stylesheet" href="investigation.css">
+<link rel="stylesheet" href="kislota-ishqor.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html#home" class="logo" aria-label="ZiyoLab"><img src="logo.png" alt="ZiyoLab" class="logo-img" width="717" height="262"></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#home">Bosh sahifa</a>
+      <a href="ohm-qonuni.html">Laboratoriya</a>
+      <a href="index.html#subjects">Tajribalar</a>
+      <a href="index.html#stats">Natijalar</a>
+      <a href="index.html#haqida">Haqida</a>
+    </nav>
+
+    <div class="navbar-actions">
+      <a href="#investigation" class="btn btn-primary btn-sm">Boshlash</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menyuni ochish" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="chem-page">
+
+  <!-- ===================== HEADER ===================== -->
+  <section class="ohm-header container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html#home">Bosh sahifa</a>
+      <span>/</span>
+      <a href="index.html#subjects">Laboratoriya</a>
+      <span>/</span>
+      <a href="index.html#subjects">Kimyo</a>
+      <span>/</span>
+      <span class="breadcrumb-current">Kislota va ishqor reaksiyasi</span>
+    </nav>
+
+    <div class="ohm-header-top">
+      <h1>Kislota va ishqor reaksiyasi</h1>
+      <span class="status-badge" id="statusBadge"><i class="status-dot"></i>Tajriba tayyor</span>
+    </div>
+    <p class="ohm-subtitle">Kislotaga ishqor qo‘shing, pH ni o‘lchang va neytrallanish egri chizig‘ini o‘z ma’lumotlaringizdan chizing.</p>
+  </section>
+
+  <!-- ===================== STAGE NAV (free navigation: every step opens at any time) ===================== -->
+  <section class="ohm-steps stage-nav" aria-label="Tajriba bosqichlari">
+    <div class="container">
+      <ol class="steps-list" id="stepsList">
+        <li data-step="1"><span class="step-num">1</span><span class="step-text">Bashorat</span></li>
+        <li data-step="2"><span class="step-num">2</span><span class="step-text">O‘lchov</span></li>
+        <li data-step="3"><span class="step-num">3</span><span class="step-text">Tahlil</span></li>
+        <li data-step="4"><span class="step-num">4</span><span class="step-text">Xulosa</span></li>
+        <li data-step="5"><span class="step-num">5</span><span class="step-text">Topshiriq</span></li>
+        <li data-step="6"><span class="step-num">6</span><span class="step-text">Natijalar</span></li>
+        <li data-step="7"><span class="step-num">7</span><span class="step-text">Bilim testi</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== TAJRIBA HAQIDA ===================== -->
+  <section class="ohm-header container">
+    <h2 class="steps-title">Tajriba haqida</h2>
+    <div class="about-grid">
+      <div class="about-block">
+        <h4>Kelib chiqishi</h4>
+        <p>Kislota va ishqorlar haqidagi bilimlar asrlar davomida rivojlanib, neytrallanish reaksiyasi tushunchasi kimyoning asosiy qonuniyatlaridan biriga aylandi.</p>
+      </div>
+      <div class="about-block">
+        <h4>Nima uchun kerak?</h4>
+        <p>pH darajasini bilish muhitning kislotali yoki ishqoriy ekanligini aniqlashga yordam beradi, bu esa ko‘plab jarayonlar uchun muhim.</p>
+      </div>
+      <div class="about-block">
+        <h4>Haqiqiy hayotda</h4>
+        <p>pH suv sifatini nazorat qilishda, qishloq xo‘jaligida, oziq-ovqat sanoatida, maishiy vositalarda va laboratoriyalarda qo‘llaniladi.</p>
+      </div>
+      <div class="about-block">
+        <h4>Asosiy g‘oya</h4>
+        <p>Kislota muhitni neytraldan kislotali tomonga, ishqor esa ishqoriy tomonga suradi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT THE MODEL ===================== -->
+  <section class="ohm-header container" id="modelInfo">
+    <div class="model-card">
+      <span class="section-tag">Model haqida</span>
+      <h2>Bu qanday hisoblanadi?</h2>
+      <p class="model-intro">Bu — ta’limiy, soddalashtirilgan neytrallanish modeli. pH ixtiyoriy formuladan emas, kolbada qolgan ortiqcha H⁺ yoki OH⁻ miqdoridan hisoblanadi. Real laboratoriya sharoitining hammasi hisobga olinmaydi.</p>
+      <div class="model-grid">
+        <div>
+          <h4>Qabul qilingan shartlar</h4>
+          <ul>
+            <li>Kuchli kislota (HCl) va kuchli ishqor (NaOH): suvda to‘liq ionlanadi.</li>
+            <li>Kolbada 25,0 mL 0,100 M HCl; burettada 0,100 M NaOH (hajmi 50 mL).</li>
+            <li>Eritma hajmlari qo‘shiladi: V<sub>jami</sub> = V<sub>kislota</sub> + V<sub>ishqor</sub>.</li>
+            <li>Harorat 25 °C, suvning ion ko‘paytmasi K<sub>w</sub> = 1,0·10⁻¹⁴.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hisoblash</h4>
+          <ul>
+            <li>Modda miqdori: n = C · V. Ortiqcha H⁺: x = (n<sub>H⁺</sub> − n<sub>OH⁻</sub>) / V<sub>jami</sub>.</li>
+            <li class="model-formula">[H⁺] = (x + √(x² + 4K<sub>w</sub>)) / 2,&nbsp; pH = −log₁₀[H⁺]</li>
+            <li>Bu suvning o‘z-o‘zidan ionlanishini ham hisobga oladi, shuning uchun neytrallanish nuqtasida pH aynan 7 bo‘ladi.</li>
+            <li>Hisobga olinmaydi: zaif kislota/ishqorlar, faollik koeffitsientlari, harorat ta’siri, CO₂ ning erishi, asbob xatosi.</li>
+            <li>Eritma rangi umumiy indikatorga o‘xshatilgan va taxminiy.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STEPS ===================== -->
+
+  <!-- ===================== QUESTION + PREDICTION ===================== -->
+  <section class="ohm-investigation container" id="investigation">
+    <div class="investigation-card">
+      <span class="section-tag">Tadqiqot savoli</span>
+      <h2 class="investigation-question">Kislotali eritmaga asta-sekin ishqor qo‘shsak, eritmaning pH i qanday o‘zgaradi?</h2>
+      <p class="investigation-hint">Xohlasangiz, hozirgi fikringizni tanlang — natijalaringiz bilan solishtiramiz. Bashorat ixtiyoriy va uni istalgan payt o‘zgartirishingiz mumkin.</p>
+
+      <div class="prediction-options" id="predictionOptions" role="radiogroup" aria-label="Bashorat">
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="down">pH kamayadi</button>
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="flat">pH deyarli o‘zgarmaydi</button>
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="linear">pH qo‘shilgan ishqorga mutanosib, bir tekis ortadi</button>
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="stop7">pH ortadi, lekin 7 ga yetgach to‘xtaydi</button>
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="jump">pH avval sekin o‘zgaradi, bir joyda keskin sakraydi, keyin yana sekin o‘zgaradi</button>
+      </div>
+
+      <div class="prediction-actions">
+        <p class="prediction-note" id="predictionNote" aria-live="polite">Bashorat ixtiyoriy. Yuqoridagi bosqichlar panelidan istalgan bosqichga istalgan paytda o‘tishingiz mumkin.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORKSPACE (setup + measure) ===================== -->
+  <section class="ohm-workspace container" id="workspace">
+
+    <!-- APPARATUS -->
+    <div class="circuit-card">
+      <div class="card-label">Virtual qurilma</div>
+      <div class="circuit-wrap">
+        <svg viewBox="0 0 360 330" class="lab-svg" id="labSvg" aria-hidden="true">
+          <defs>
+            <clipPath id="buretteClip"><rect x="101" y="24" width="24" height="150"/></clipPath>
+            <clipPath id="flaskClip"><path d="M100,206 L100,236 L44,306 Q40,312 48,312 L178,312 Q186,312 182,306 L126,236 L126,206 Z"/></clipPath>
+          </defs>
+
+          <!-- burette (base) -->
+          <g clip-path="url(#buretteClip)">
+            <rect id="buretteLiquid" class="liquid-rect" x="101" y="24" width="24" height="150" fill="#49634F" fill-opacity="0.65"/>
+          </g>
+          <rect class="glass" x="100" y="24" width="26" height="150" rx="2"/>
+          <g id="buretteScale">
+            <line class="scale-tick" x1="92" y1="24" x2="100" y2="24"/>
+            <line class="scale-tick" x1="92" y1="54" x2="100" y2="54"/>
+            <line class="scale-tick" x1="92" y1="84" x2="100" y2="84"/>
+            <line class="scale-tick" x1="92" y1="114" x2="100" y2="114"/>
+            <line class="scale-tick" x1="92" y1="144" x2="100" y2="144"/>
+            <line class="scale-tick" x1="92" y1="174" x2="100" y2="174"/>
+            <text class="scale-label" x="88" y="27" text-anchor="end">0</text>
+            <text class="scale-label" x="88" y="57" text-anchor="end">10</text>
+            <text class="scale-label" x="88" y="87" text-anchor="end">20</text>
+            <text class="scale-label" x="88" y="117" text-anchor="end">30</text>
+            <text class="scale-label" x="88" y="147" text-anchor="end">40</text>
+            <text class="scale-label" x="88" y="177" text-anchor="end">50</text>
+          </g>
+          <rect x="104" y="174" width="18" height="8" rx="2" fill="#20231F"/>
+          <rect x="111" y="182" width="4" height="22" rx="1" fill="#20231F"/>
+          <text class="apparatus-label" x="140" y="40">Burette</text>
+          <text class="apparatus-label" x="140" y="53">0,100 M NaOH</text>
+
+          <!-- flask (acid) -->
+          <g clip-path="url(#flaskClip)">
+            <rect id="flaskLiquid" class="liquid-rect" x="40" y="290" width="150" height="22" fill="#C86B3D"/>
+          </g>
+          <path class="glass" d="M100,206 L100,236 L44,306 Q40,312 48,312 L178,312 Q186,312 182,306 L126,236 L126,206"/>
+          <text class="apparatus-label" x="113" y="327" text-anchor="middle">Kolba: 25,0 mL 0,100 M HCl</text>
+
+          <!-- pH meter + probe -->
+          <rect class="meter-body" x="232" y="196" width="112" height="98" rx="8"/>
+          <rect class="meter-screen" x="243" y="208" width="90" height="46" rx="4"/>
+          <text id="phReading" class="meter-digits" x="288" y="240" text-anchor="middle">—</text>
+          <text class="meter-unit" x="288" y="272" text-anchor="middle">pH-metr</text>
+          <path class="probe-wire" d="M232,262 L150,262 L150,284"/>
+          <circle class="probe-tip" cx="150" cy="286" r="3.5"/>
+        </svg>
+      </div>
+      <p class="circuit-caption" id="flaskCaption">Kolbada: 25,0 mL kislota + 0,0 mL ishqor</p>
+      <div class="indicator-legend" aria-label="Eritma rangi">
+        <span><i class="indicator-dot dot-acid"></i>kislotali</span>
+        <span><i class="indicator-dot dot-neutral"></i>neytral atrofi</span>
+        <span><i class="indicator-dot dot-base"></i>ishqoriy</span>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls-card" id="controls">
+      <div class="card-label">1 · Ishqor qo‘shish</div>
+
+      <div class="control-group">
+        <div class="control-head">
+          <label for="amountSlider">Qo‘shiladigan miqdor</label>
+          <span class="control-value"><span id="amountValue">2.0</span> mL</span>
+        </div>
+        <input type="range" id="amountSlider" min="0.1" max="10" step="0.1" value="2" aria-label="Qo‘shiladigan ishqor miqdori, mL">
+        <div class="range-scale"><span>0,1 mL</span><span>10 mL</span></div>
+        <button type="button" class="btn btn-primary add-btn" id="addBtn">Ishqor qo‘shish</button>
+        <p class="burette-info" id="buretteInfo">Burette: 0,0 mL ishlatildi, 50,0 mL qoldi.</p>
+      </div>
+
+      <div class="card-label card-label-sub">2 · O‘lchash</div>
+
+      <div class="measurements-grid readout-grid">
+        <div class="measurement-tile">
+          <span class="measurement-label">Qo‘shilgan ishqor</span>
+          <span class="measurement-value"><span id="addedValue">0.0</span><small>mL</small></span>
+        </div>
+        <div class="measurement-tile">
+          <span class="measurement-label">pH-metr</span>
+          <span class="measurement-value"><span id="phValue">—</span></span>
+        </div>
+      </div>
+
+      <div class="measure-actions">
+        <button type="button" class="btn btn-primary" id="measureBtn">pH o‘lchash</button>
+        <button type="button" class="btn btn-secondary" id="recordBtn" disabled>Jadvalga yozish</button>
+        <button type="button" class="btn btn-secondary" id="newFlaskBtn">Yangi kolba</button>
+      </div>
+      <p class="measure-note" id="observationText" aria-live="polite">Ishqor qo‘shing, so‘ng «pH o‘lchash» tugmasini bosing.</p>
+      <p class="record-status" id="recordStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ===================== DATA TABLE + GRAPH ===================== -->
+  <section class="ohm-analysis container" id="dataPanel">
+    <div class="observation-card data-card">
+      <div class="data-card-head">
+        <h3 class="card-title">O‘lchovlar jadvali</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="clearBtn" disabled>Hammasini tozalash</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="dataTable">
+          <thead>
+            <tr>
+              <th scope="col">№</th>
+              <th scope="col">Ishqor (mL)</th>
+              <th scope="col">pH</th>
+              <th scope="col"><span class="sr-only">O‘chirish</span></th>
+            </tr>
+          </thead>
+          <tbody id="dataBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="graph-card">
+      <h3 class="card-title">pH ning qo‘shilgan ishqorga bog‘liqligi</h3>
+      <svg viewBox="0 0 380 230" class="graph-svg" id="graphSvg" role="img" aria-label="pH – qo‘shilgan ishqor hajmi grafigi">
+        <line x1="46" y1="10" x2="46" y2="180" class="graph-axis"/>
+        <line x1="46" y1="180" x2="360" y2="180" class="graph-axis"/>
+        <text x="203" y="222" class="graph-axis-label graph-axis-title">Qo‘shilgan ishqor (mL)</text>
+        <text x="-95" y="14" transform="rotate(-90)" class="graph-axis-label graph-axis-title">pH</text>
+        <g id="graphDynamic"></g>
+      </svg>
+      <p class="graph-status" id="graphStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ===================== ANALYSIS ===================== -->
+  <section class="analysis-section container" id="analysisPanel">
+    <div class="section-head">
+      <span class="section-tag">Tahlil</span>
+      <h2>Ma’lumotlaringizni tahlil qiling</h2>
+      <p>Savollarga istalgan tartibda va istalgan payt javob bering. Javobingizni o‘zgartirsangiz yoki yangi ma’lumot qo‘shsangiz, tushuntirish ma’lumotlaringizga qarab yangilanadi.</p>
+    </div>
+    <div class="quiz-list" id="analysisList"></div>  </section>
+
+  <!-- ===================== CONCLUSION ===================== -->
+  <section class="conclusion-section container" id="conclusionPanel">
+    <div class="section-head">
+      <span class="section-tag">Xulosa</span>
+      <h2>Xulosangizni tuzing</h2>
+      <p>Gapni o‘z o‘lchovlaringizga tayanib to‘ldiring.</p>
+    </div>
+    <div class="step-card">
+      <p class="conclusion-sentence">
+        Kislotali eritmaga ishqor qo‘shilganda pH
+        <select class="field-select" id="trendSelect" aria-label="pH o‘zgarishi">
+          <option value="">— tanlang —</option>
+          <option value="up">ortadi</option>
+          <option value="down">kamayadi</option>
+          <option value="same">o‘zgarmaydi</option>
+        </select>,
+        eng tez o‘zgarish
+        <select class="field-select" id="whereSelect" aria-label="Eng tez o‘zgarish joyi">
+          <option value="">— tanlang —</option>
+          <option value="start">ishqor kam qo‘shilgan boshida</option>
+          <option value="near">neytrallanish nuqtasi yaqinida</option>
+          <option value="end">ishqor ko‘p qo‘shilgan oxirida</option>
+        </select>
+        kuzatiladi, ishqor ortiqcha bo‘lganda esa eritma
+        <select class="field-select" id="excessSelect" aria-label="Ortiqcha ishqordagi eritma">
+          <option value="">— tanlang —</option>
+          <option value="acid">kislotali</option>
+          <option value="neutral">neytral</option>
+          <option value="base">ishqoriy</option>
+        </select>
+        bo‘ladi.
+      </p>
+      <button type="button" class="btn btn-primary" id="conclusionBtn">Xulosani tekshirish</button>
+      <div class="feedback-box hidden" id="conclusionFeedback" aria-live="polite"></div>
+    </div>  </section>
+
+  <!-- ===================== CHALLENGE ===================== -->
+  <section class="challenge-section container" id="challengePanel">
+    <div class="section-head">
+      <span class="section-tag">Topshiriq</span>
+      <h2>Modda miqdorini solishtiring</h2>
+      <p>Kolbada 25,0 mL 0,100 M HCl bor. Bu safar burettada <strong>ikki baravar konsentrlangan</strong> ishqor — 0,200 M NaOH.</p>
+    </div>
+    <div class="quiz-list" id="challengeList"></div>  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="ohm-results container" id="resultsPanel">
+    <div class="results-card">
+      <span class="results-badge">Joriy natijalar</span>
+      <div class="results-grid">
+        <div class="result-tile">
+          <span class="measurement-label">O‘lchovlar soni</span>
+          <span class="measurement-value"><span id="finalTrials">0</span></span>
+        </div>
+        <div class="result-tile">
+          <span class="measurement-label">pH 7 oralig‘i</span>
+          <span class="measurement-value"><span id="finalNeutral">—</span><small>mL</small></span>
+        </div>
+        <div class="result-tile">
+          <span class="measurement-label">pH o‘zgarishi</span>
+          <span class="measurement-value"><span id="finalRange">—</span></span>
+        </div>
+        <div class="result-tile">
+          <span class="measurement-label">Topshiriq</span>
+          <span class="measurement-value"><span id="finalChallenge">✓</span></span>
+        </div>
+      </div>
+      <p class="results-conclusion">Kislota va ishqor modda miqdorlari (mol) teng bo‘lganda neytrallanish sodir bo‘ladi. Shu nuqta yaqinida pH keskin sakraydi: oldin eritma kislotali, keyin ishqoriy.</p>
+    </div>  </section>
+
+  <!-- ===================== QUIZ ===================== -->
+  <section class="ohm-quiz container" id="quizPanel">
+    <div class="section-head">
+      <span class="section-tag">Bilim testi</span>
+      <h2>Bilimingizni tekshiring</h2>
+    </div>
+    <div class="quiz-list" id="quizList"></div>
+    <div class="quiz-score hidden" id="quizScore"></div>
+    <div class="return-home">
+      <a href="index.html" class="btn btn-primary">Bosh sahifaga qaytish</a>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIONS ===================== -->
+  <section class="ohm-actions container">
+    <button type="button" class="btn btn-secondary" id="resetBtn">Tajribani qayta boshlash</button>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html#home" class="logo" aria-label="ZiyoLab"><img src="logo.png" alt="ZiyoLab" class="logo-img" width="717" height="262"></a>
+      <p>Virtual tajriba laboratoriyasi — o‘quvchilar uchun zamonaviy ilmiy platforma. Xavfsiz, interaktiv va har doim mavjud.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Sahifalar</h4>
+      <a href="index.html#home">Bosh sahifa</a>
+      <a href="ohm-qonuni.html">Laboratoriya</a>
+      <a href="index.html#subjects">Tajribalar</a>
+      <a href="index.html#stats">Natijalar</a>
+      <a href="index.html#haqida">Haqida</a>
+    </div>
+
+    <div class="footer-social">
+      <h4>Ijtimoiy tarmoqlar</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M21 4L3 11.5L10 13.5M21 4L18 20L10 13.5M21 4L10 13.5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="7" r="0.9" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 2 6.6 2 12.1C2 16.6 4.9 20.3 8.8 21.6C9.3 21.7 9.5 21.4 9.5 21.1V19.2C6.7 19.8 6.1 17.9 6.1 17.9C5.7 16.8 5.1 16.5 5.1 16.5C4.2 15.9 5.1 15.9 5.1 15.9C6.1 16 6.6 16.9 6.6 16.9C7.5 18.4 8.9 18 9.5 17.7C9.6 17 9.9 16.6 10.2 16.4C7.9 16.1 5.6 15.3 5.6 11.4C5.6 10.3 6 9.4 6.6 8.7C6.5 8.5 6.2 7.4 6.7 6C6.7 6 7.5 5.7 9.5 7.1C10.3 6.9 11.2 6.8 12 6.8C12.8 6.8 13.7 6.9 14.5 7.1C16.5 5.7 17.3 6 17.3 6C17.8 7.4 17.5 8.5 17.4 8.7C18 9.4 18.4 10.3 18.4 11.4C18.4 15.3 16.1 16.1 13.8 16.4C14.2 16.7 14.5 17.3 14.5 18.2V21.1C14.5 21.4 14.7 21.7 15.2 21.6C19.1 20.3 22 16.6 22 12.1C22 6.6 17.5 2 12 2Z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 ZiyoLab. Barcha huquqlar himoyalangan.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="lab-common.js"></script>
+<script src="quiz.js"></script>
+<script src="nav.js"></script>
+<script src="kislota-ishqor.js"></script>
+</body>
+</html>
