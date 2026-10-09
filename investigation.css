@@ -1,0 +1,394 @@
+/* =====================================================================
+   investigation.css — components for "investigation style" lab pages:
+   prediction → measure → data table → graph → analysis → conclusion → challenge.
+
+   Currently used by the acid/base page. The Ohm page still carries its own
+   copy of these rules in ohm.css; a later cleanup can point it here.
+
+   Load order: style.css → lab.css → investigation.css → page css.
+   ===================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* sections that get revealed later should not hide under the sticky navbar */
+.ohm-page section,
+.chem-page section {
+  scroll-margin-top: 96px;
+}
+
+/* ---- question + prediction ---- */
+.investigation-card,
+.step-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.investigation-question {
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  margin-bottom: 10px;
+}
+
+.investigation-hint {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+.prediction-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.prediction-option {
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.prediction-option:hover:not(:disabled) {
+  border-color: rgba(73, 99, 79, 0.45);
+}
+
+.prediction-option.selected {
+  border-color: var(--green);
+  background: rgba(73, 99, 79, 0.1);
+  color: var(--green);
+  font-weight: 600;
+}
+
+.prediction-option:disabled {
+  cursor: default;
+}
+
+.prediction-option:disabled:not(.selected) {
+  opacity: 0.45;
+}
+
+.prediction-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.prediction-note {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* ---- controls card additions (dark card) ---- */
+.card-label-sub {
+  margin-top: 8px;
+  padding-top: 22px;
+  border-top: 1px solid var(--hairline-on-dark);
+}
+
+.readout-grid {
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 0;
+}
+
+.readout-grid .measurement-tile {
+  padding: 12px;
+  min-width: 0;
+}
+
+.readout-grid .measurement-label {
+  font-size: 0.68rem;
+}
+
+.readout-grid .measurement-value {
+  font-size: 1.25rem;
+}
+
+.measure-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.controls-card .btn-secondary {
+  color: var(--text-on-dark);
+  border-color: rgba(243, 240, 232, 0.35);
+}
+
+.controls-card .btn-secondary:hover:not(:disabled) {
+  background: rgba(243, 240, 232, 0.08);
+}
+
+.measure-note {
+  margin-top: 16px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--muted-on-dark);
+}
+
+.record-status {
+  margin-top: 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--yellow);
+  min-height: 1.2em;
+}
+
+/* ---- data table ---- */
+.data-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.data-card-head .card-title {
+  margin-bottom: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table th {
+  text-align: right;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: bottom;
+}
+
+.data-table td {
+  text-align: right;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  transition: background 0.8s ease;
+}
+
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.data-table td.table-empty {
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 18px 10px;
+  line-height: 1.6;
+}
+
+.data-table tr.row-new td {
+  background: rgba(217, 184, 95, 0.22);
+}
+
+.row-delete {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.row-delete:hover {
+  color: var(--orange);
+  border-color: rgba(200, 107, 61, 0.5);
+}
+
+.data-hint {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  font-size: 0.88rem;
+}
+
+.data-hint:empty {
+  display: none;
+}
+
+/* ---- graph ---- */
+.graph-svg {
+  width: 100%;
+  height: auto;
+}
+
+.graph-axis {
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+
+.graph-axis-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  fill: var(--muted);
+}
+
+.graph-axis-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+  fill: var(--muted);
+}
+
+.graph-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.graph-guide {
+  stroke: var(--muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.7;
+}
+
+.graph-curve {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.graph-marker {
+  fill: var(--orange);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.graph-status {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.graph-status.ready {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ---- analysis / conclusion / challenge ---- */
+.analysis-section .section-head,
+.conclusion-section .section-head,
+.challenge-section .section-head {
+  margin-bottom: 32px;
+}
+
+.conclusion-sentence {
+  font-size: 1.05rem;
+  line-height: 2.6;
+  margin-bottom: 20px;
+}
+
+.field-select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  max-width: 100%;
+}
+
+.field-select:focus {
+  outline: 2px solid rgba(73, 99, 79, 0.45);
+  outline-offset: 1px;
+  border-color: var(--green);
+}
+
+.challenge-text {
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.feedback-box {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(73, 99, 79, 0.35);
+  border-left-width: 4px;
+  background: rgba(73, 99, 79, 0.08);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.feedback-box p + p {
+  margin-top: 8px;
+}
+
+.feedback-box.wrong {
+  border-color: rgba(200, 107, 61, 0.4);
+  background: rgba(200, 107, 61, 0.08);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 560px) {
+
+  .prediction-options {
+    grid-template-columns: 1fr;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .data-table th {
+    font-size: 0.64rem;
+    letter-spacing: 0.03em;
+  }
+
+  .investigation-card,
+  .step-card {
+    padding: 22px;
+  }
+
+  .measure-actions .btn {
+    flex: 1 1 100%;
+  }
+}

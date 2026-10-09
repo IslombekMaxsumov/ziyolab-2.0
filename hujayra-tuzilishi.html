@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Hujayra tuzilishi — ZiyoLab</title>
+<meta name="description" content="ZiyoLab virtual laboratoriyasida hujayra tuzilishi tajribasi — hujayra tuzilmalarini bosib, ularning vazifalari bilan tanishing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lab.css">
+<link rel="stylesheet" href="investigation.css">
+<link rel="stylesheet" href="hujayra.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html#home" class="logo" aria-label="ZiyoLab"><img src="logo.png" alt="ZiyoLab" class="logo-img" width="717" height="262"></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#home">Bosh sahifa</a>
+      <a href="ohm-qonuni.html">Laboratoriya</a>
+      <a href="index.html#subjects">Tajribalar</a>
+      <a href="index.html#stats">Natijalar</a>
+      <a href="index.html#haqida">Haqida</a>
+    </nav>
+
+    <div class="navbar-actions">
+      <a href="#investigation" class="btn btn-primary btn-sm">Boshlash</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menyuni ochish" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="chem-page">
+
+  <!-- ===================== HEADER ===================== -->
+  <section class="ohm-header container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html#home">Bosh sahifa</a>
+      <span>/</span>
+      <a href="index.html#subjects">Laboratoriya</a>
+      <span>/</span>
+      <a href="index.html#subjects">Biologiya</a>
+      <span>/</span>
+      <span class="breadcrumb-current">Hujayra tuzilishi</span>
+    </nav>
+
+    <div class="ohm-header-top">
+      <h1>Hujayra tuzilishi</h1>
+      <span class="status-badge" id="statusBadge"><i class="status-dot"></i>Tajriba tayyor</span>
+    </div>
+    <p class="ohm-subtitle">Noma’lum hujayrani tekshiring, dalillarni yig‘ing va uning o‘simlik yoki hayvon hujayrasi ekanini aniqlang.</p>
+  </section>
+
+  <!-- ===================== STAGE NAV (free navigation: every step opens at any time) ===================== -->
+  <section class="ohm-steps stage-nav" aria-label="Tajriba bosqichlari">
+    <div class="container">
+      <ol class="steps-list" id="stepsList">
+        <li data-step="1"><span class="step-num">1</span><span class="step-text">Bashorat</span></li>
+        <li data-step="2"><span class="step-num">2</span><span class="step-text">Dalillar</span></li>
+        <li data-step="3"><span class="step-num">3</span><span class="step-text">Taqqoslash</span></li>
+        <li data-step="4"><span class="step-num">4</span><span class="step-text">Tahlil</span></li>
+        <li data-step="5"><span class="step-num">5</span><span class="step-text">Xulosa</span></li>
+        <li data-step="6"><span class="step-num">6</span><span class="step-text">Topshiriq</span></li>
+        <li data-step="7"><span class="step-num">7</span><span class="step-text">Natijalar</span></li>
+        <li data-step="8"><span class="step-num">8</span><span class="step-text">Bilim testi</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== TAJRIBA HAQIDA ===================== -->
+  <section class="ohm-header container">
+    <h2 class="steps-title">Tajriba haqida</h2>
+    <div class="about-grid">
+      <div class="about-block">
+        <h4>Kelib chiqishi</h4>
+        <p>Hujayrani birinchi marta Robert Huk 17-asrda mikroskop yordamida kuzatgan. Keyinchalik bu kuzatishlar hujayra nazariyasining rivojlanishiga asos bo‘ldi.</p>
+      </div>
+      <div class="about-block">
+        <h4>Nima uchun kerak?</h4>
+        <p>Hujayralarni o‘rganish tirik organizmlarning qanday ishlashini tushunishga yordam beradi.</p>
+      </div>
+      <div class="about-block">
+        <h4>Haqiqiy hayotda</h4>
+        <p>Hujayra haqidagi bilimlar tibbiyot, genetika, kasalliklarni o‘rganish va biotexnologiyada keng qo‘llaniladi.</p>
+      </div>
+      <div class="about-block">
+        <h4>Asosiy g‘oya</h4>
+        <p>Yadro boshqaradi, membrana himoya qiladi, sitoplazma muhit yaratadi, mitoxondriya esa energiya ishlab chiqaradi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SIMPLIFICATIONS ===================== -->
+  <section class="ohm-header container" id="simInfo">
+    <div class="sim-card">
+      <span class="section-tag">Soddalashtirishlar</span>
+      <h2>Bu laboratoriya haqida</h2>
+      <ul class="sim-list">
+        <li>Hujayralar sxematik tasvirlangan: haqiqiy hujayralarning shakli, kattaligi va organellalar soni turlicha bo‘ladi.</li>
+        <li>Faqat o‘simlik va hayvon hujayralari taqqoslanadi. Zamburug‘lar, bakteriyalar va boshqa organizmlar bu yerda ko‘rib chiqilmaydi.</li>
+        <li>Namunalar noma’lum: har safar boshqa namuna beriladi va u hech qayerda nomlanmaydi — turni dalillar asosida o‘zingiz aniqlaysiz.</li>
+        <li>Dalilning kuchi (kuchli / o‘rtacha / kuchsiz) ta’limiy baho: bitta belgi hamma vaqt yetarli bo‘lmaydi, shuning uchun bir nechta dalilni birga ko‘ramiz.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== STEPS ===================== -->
+
+  <!-- ===================== QUESTION + PREDICTION ===================== -->
+  <section class="ohm-investigation container" id="investigation">
+    <div class="investigation-card">
+      <span class="section-tag">Tadqiqot savoli</span>
+      <h2 class="investigation-question">Namuna <span id="sampleName">A</span> — noma’lum hujayra. Uni dalillar asosida aniqlay olasizmi: o‘simlik hujayrasimi yoki hayvon hujayrasi?</h2>
+      <p class="investigation-hint">Mikroskopga qarashdan oldin hozirgi fikringizni tanlang yoki bo‘sh qoldiring — dalillaringiz bilan solishtiramiz. Uni istalgan payt o‘zgartirishingiz mumkin.</p>
+
+      <div class="prediction-options" id="predictionOptions" role="radiogroup" aria-label="Bashorat">
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="plant">O‘simlik hujayrasi</button>
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="animal">Hayvon hujayrasi</button>
+        <button type="button" class="prediction-option" role="radio" aria-checked="false" data-value="unsure">Hozircha ayta olmayman</button>
+      </div>
+
+      <div class="prediction-actions">
+        <p class="prediction-note" id="predictionNote" aria-live="polite">Bashorat ixtiyoriy. Yuqoridagi bosqichlar panelidan istalgan bosqichga istalgan paytda o‘tishingiz mumkin.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORKSPACE (microscope + inspector) ===================== -->
+  <section class="ohm-workspace container" id="cell">
+
+    <!-- CELL VIEW -->
+    <div class="circuit-card">
+      <div class="card-label">Mikroskop ko‘rinishi — Namuna <span id="sampleLabel">A</span></div>
+      <div class="circuit-wrap cell-wrap">
+        <svg viewBox="0 0 400 360" class="cell-svg" id="cellSvg" role="group" aria-label="Noma’lum hujayra">
+          <g id="cellLayer"></g>
+        </svg>
+      </div>
+      <p class="circuit-caption" id="cellCaption">Hujayradagi shaklni bosing yoki o‘ng tomondagi ro‘yxatdan tuzilmani tanlang.</p>
+    </div>
+
+    <!-- INSPECTOR -->
+    <div class="controls-card" id="controls">
+      <div class="card-label">Tuzilmani tekshirish</div>
+
+      <div class="legend-list" id="structureList">
+        <button type="button" class="legend-item" data-struct="membrane"><span class="legend-dot dot-membrane"></span><span class="legend-name">Hujayra membranasi</span><span class="legend-mark" aria-hidden="true"></span></button>
+        <button type="button" class="legend-item" data-struct="cytoplasm"><span class="legend-dot dot-cytoplasm"></span><span class="legend-name">Sitoplazma</span><span class="legend-mark" aria-hidden="true"></span></button>
+        <button type="button" class="legend-item" data-struct="nucleus"><span class="legend-dot dot-nucleus"></span><span class="legend-name">Yadro</span><span class="legend-mark" aria-hidden="true"></span></button>
+        <button type="button" class="legend-item" data-struct="mito"><span class="legend-dot dot-mito"></span><span class="legend-name">Mitoxondriya</span><span class="legend-mark" aria-hidden="true"></span></button>
+        <button type="button" class="legend-item" data-struct="wall"><span class="legend-dot dot-wall"></span><span class="legend-name">Hujayra devori</span><span class="legend-mark" aria-hidden="true"></span></button>
+        <button type="button" class="legend-item" data-struct="chloroplast"><span class="legend-dot dot-chloroplast"></span><span class="legend-name">Xloroplast</span><span class="legend-mark" aria-hidden="true"></span></button>
+        <button type="button" class="legend-item" data-struct="vacuole"><span class="legend-dot dot-vacuole"></span><span class="legend-name">Vakuol</span><span class="legend-mark" aria-hidden="true"></span></button>
+      </div>
+
+      <div class="info-window" id="infoWindow" aria-live="polite">
+        <h3 class="info-title" id="infoTitle">Tuzilmani tanlang</h3>
+        <p class="info-text" id="infoText">Ro‘yxatdan tuzilmani tanlang. Namunada u bor-yo‘qligini tekshirib, kuzatuvingizni dalillar daftariga yozasiz.</p>
+        <dl class="info-detail hidden" id="infoDetail">
+          <dt>Vazifasi</dt>
+          <dd id="infoFunction"></dd>
+          <dt>Namunada kuzatildi</dt>
+          <dd id="infoObservation"></dd>
+          <dt>Mumkin xulosa</dt>
+          <dd id="infoImplication"></dd>
+        </dl>
+      </div>
+
+      <button type="button" class="btn btn-primary add-evidence-btn" id="addEvidenceBtn" disabled>Dalillar daftariga yozish</button>
+    </div>
+  </section>
+
+  <!-- ===================== EVIDENCE NOTEBOOK ===================== -->
+  <section class="evidence-section container" id="evidencePanel">
+    <div class="observation-card data-card">
+      <div class="data-card-head">
+        <h3 class="card-title">Dalillar daftari</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="clearBtn" disabled>Hammasini tozalash</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table evidence-table" id="evidenceTable">
+          <thead>
+            <tr>
+              <th scope="col">Tuzilma</th>
+              <th scope="col">Kuzatildimi?</th>
+              <th scope="col">Dalil</th>
+              <th scope="col"><span class="sr-only">O‘chirish</span></th>
+            </tr>
+          </thead>
+          <tbody id="evidenceBody"></tbody>
+        </table>
+      </div>
+      <p class="data-hint" id="evidenceHint" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ===================== COMPARE ===================== -->
+  <section class="compare-section container" id="comparePanel">
+    <div class="section-head">
+      <span class="section-tag">Taqqoslash</span>
+      <h2>Ikki hujayrani taqqoslang</h2>
+      <p>Namunaviy o‘simlik va hayvon hujayralarini o‘z dalillaringiz bilan solishtiring.</p>
+    </div>
+
+    <div class="compare-cells">
+      <figure class="compare-cell">
+        <div class="circuit-wrap"><svg viewBox="0 0 400 360" class="cell-svg" id="refPlantSvg" role="img" aria-label="Namunaviy o‘simlik hujayrasi"><g id="refPlantLayer"></g></svg></div>
+        <figcaption>Namunaviy o‘simlik hujayrasi (barg to‘qimasi)</figcaption>
+      </figure>
+      <figure class="compare-cell">
+        <div class="circuit-wrap"><svg viewBox="0 0 400 360" class="cell-svg" id="refAnimalSvg" role="img" aria-label="Namunaviy hayvon hujayrasi"><g id="refAnimalLayer"></g></svg></div>
+        <figcaption>Namunaviy hayvon hujayrasi</figcaption>
+      </figure>
+    </div>
+
+    <div class="step-card">
+      <div class="compare-filters" id="compareFilters" role="group" aria-label="Taqqoslash filtri">
+        <button type="button" class="filter-btn active" data-filter="all">Barchasi</button>
+        <button type="button" class="filter-btn" data-filter="diff">Farqlar</button>
+        <button type="button" class="filter-btn" data-filter="shared">Umumiy</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table compare-table" id="compareTable">
+          <thead>
+            <tr>
+              <th scope="col">Tuzilma</th>
+              <th scope="col">O‘simlik hujayrasi</th>
+              <th scope="col">Hayvon hujayrasi</th>
+              <th scope="col">Sizning namunangiz</th>
+            </tr>
+          </thead>
+          <tbody id="compareBody"></tbody>
+        </table>
+      </div>
+      <ul class="compare-notes">
+        <li>Yadro, membrana, sitoplazma va mitoxondriya <strong>ikkala</strong> hujayra turida ham bor — mitoxondriya o‘simlik hujayralarida ham hujayra nafasi uchun xizmat qiladi.</li>
+        <li>Xloroplast yashil o‘simlik hujayralarining ko‘pchiligida bor, lekin <strong>hammasida emas</strong> (masalan, ildiz hujayralarida yo‘q).</li>
+        <li>Hayvon hujayralarida ham mayda vakuolalar yoki pufakchalar bo‘lishi mumkin; o‘simlikning yetuk hujayralarida esa odatda bitta katta markaziy vakuol bo‘ladi.</li>
+        <li>Hujayra devori o‘simlik hujayralarida bor, hayvon hujayralarida yo‘q (zamburug‘ va bakteriyalarda ham devor bor, lekin ular bu yerda taqqoslanmaydi).</li>
+      </ul>
+      <p class="data-hint compare-hint" id="compareHint" aria-live="polite"></p>
+    </div>  </section>
+
+  <!-- ===================== ANALYSIS ===================== -->
+  <section class="analysis-section container" id="analysisPanel">
+    <div class="section-head">
+      <span class="section-tag">Tahlil</span>
+      <h2>Dalillaringizni tahlil qiling</h2>
+      <p>Savollarga istalgan tartibda va istalgan payt javob bering. Javobingizni o‘zgartirsangiz yoki yangi ma’lumot qo‘shsangiz, tushuntirish ma’lumotlaringizga qarab yangilanadi.</p>
+    </div>
+    <div class="quiz-list" id="analysisList"></div>  </section>
+
+  <!-- ===================== CONCLUSION ===================== -->
+  <section class="conclusion-section container" id="conclusionPanel">
+    <div class="section-head">
+      <span class="section-tag">Xulosa</span>
+      <h2>Namuna <span class="sample-letter">A</span> nima?</h2>
+      <p>Xulosangizni tanlang va uni qaysi dalillaringiz qo‘llab-quvvatlashini belgilang.</p>
+    </div>
+    <div class="step-card">
+      <p class="conclusion-sentence">
+        Dalillarimga ko‘ra, Namuna <span class="sample-letter">A</span> —
+        <select class="field-select" id="identitySelect" aria-label="Xulosa">
+          <option value="">— tanlang —</option>
+          <option value="plant">o‘simlik hujayrasi</option>
+          <option value="animal">hayvon hujayrasi</option>
+          <option value="unsure">hozircha aniq xulosa chiqarib bo‘lmaydi</option>
+        </select>.
+      </p>
+      <fieldset class="cite-box">
+        <legend>Xulosamni quyidagi dalillarga tayanib chiqardim:</legend>
+        <div class="cite-list" id="citeList"></div>
+      </fieldset>
+      <button type="button" class="btn btn-primary" id="conclusionBtn">Xulosani tekshirish</button>
+      <div class="feedback-box hidden" id="conclusionFeedback" aria-live="polite"></div>
+    </div>  </section>
+
+  <!-- ===================== CHALLENGE ===================== -->
+  <section class="challenge-section container" id="challengePanel">
+    <div class="section-head">
+      <span class="section-tag">Topshiriq</span>
+      <h2>Dalildan xulosa chiqaring</h2>
+      <p>Bu safar hujayra tasvirlanmagan — faqat kuzatuvlar berilgan. Eng yaxshi qo‘llab-quvvatlanadigan xulosani tanlang.</p>
+    </div>
+    <div class="quiz-list" id="challengeList"></div>  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="ohm-results container" id="resultsPanel">
+    <div class="results-card">
+      <span class="results-badge">Joriy natijalar</span>
+      <div class="results-grid">
+        <div class="result-tile">
+          <span class="measurement-label">Namuna</span>
+          <span class="measurement-value result-text"><span id="finalSample">—</span></span>
+        </div>
+        <div class="result-tile">
+          <span class="measurement-label">Tekshirilgan tuzilma</span>
+          <span class="measurement-value"><span id="finalChecked">0 / 7</span></span>
+        </div>
+        <div class="result-tile">
+          <span class="measurement-label">Eng kuchli dalil</span>
+          <span class="measurement-value result-text"><span id="finalStrongest">—</span></span>
+        </div>
+        <div class="result-tile">
+          <span class="measurement-label">Topshiriq</span>
+          <span class="measurement-value"><span id="finalChallenge">✓</span></span>
+        </div>
+      </div>
+      <p class="results-conclusion">Hujayra turini bitta belgi emas, bir nechta dalil birga aniqlaydi: hujayra devori va xloroplast o‘simlik hujayrasiga ishora qiladi, yadro va mitoxondriya esa ikkala turda ham bor.</p>
+    </div>  </section>
+
+  <!-- ===================== QUIZ ===================== -->
+  <section class="ohm-quiz container" id="quizPanel">
+    <div class="section-head">
+      <span class="section-tag">Bilim testi</span>
+      <h2>Bilimingizni tekshiring</h2>
+    </div>
+    <div class="quiz-list" id="quizList"></div>
+    <div class="quiz-score hidden" id="quizScore"></div>
+    <div class="return-home">
+      <a href="index.html" class="btn btn-primary">Bosh sahifaga qaytish</a>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIONS ===================== -->
+  <section class="ohm-actions container">
+    <button type="button" class="btn btn-secondary" id="resetBtn">Yangi namuna bilan qayta boshlash</button>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html#home" class="logo" aria-label="ZiyoLab"><img src="logo.png" alt="ZiyoLab" class="logo-img" width="717" height="262"></a>
+      <p>Virtual tajriba laboratoriyasi — o‘quvchilar uchun zamonaviy ilmiy platforma. Xavfsiz, interaktiv va har doim mavjud.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Sahifalar</h4>
+      <a href="index.html#home">Bosh sahifa</a>
+      <a href="ohm-qonuni.html">Laboratoriya</a>
+      <a href="index.html#subjects">Tajribalar</a>
+      <a href="index.html#stats">Natijalar</a>
+      <a href="index.html#haqida">Haqida</a>
+    </div>
+
+    <div class="footer-social">
+      <h4>Ijtimoiy tarmoqlar</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M21 4L3 11.5L10 13.5M21 4L18 20L10 13.5M21 4L10 13.5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="7" r="0.9" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 2 6.6 2 12.1C2 16.6 4.9 20.3 8.8 21.6C9.3 21.7 9.5 21.4 9.5 21.1V19.2C6.7 19.8 6.1 17.9 6.1 17.9C5.7 16.8 5.1 16.5 5.1 16.5C4.2 15.9 5.1 15.9 5.1 15.9C6.1 16 6.6 16.9 6.6 16.9C7.5 18.4 8.9 18 9.5 17.7C9.6 17 9.9 16.6 10.2 16.4C7.9 16.1 5.6 15.3 5.6 11.4C5.6 10.3 6 9.4 6.6 8.7C6.5 8.5 6.2 7.4 6.7 6C6.7 6 7.5 5.7 9.5 7.1C10.3 6.9 11.2 6.8 12 6.8C12.8 6.8 13.7 6.9 14.5 7.1C16.5 5.7 17.3 6 17.3 6C17.8 7.4 17.5 8.5 17.4 8.7C18 9.4 18.4 10.3 18.4 11.4C18.4 15.3 16.1 16.1 13.8 16.4C14.2 16.7 14.5 17.3 14.5 18.2V21.1C14.5 21.4 14.7 21.7 15.2 21.6C19.1 20.3 22 16.6 22 12.1C22 6.6 17.5 2 12 2Z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 ZiyoLab. Barcha huquqlar himoyalangan.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="lab-common.js"></script>
+<script src="quiz.js"></script>
+<script src="nav.js"></script>
+<script src="hujayra.js"></script>
+</body>
+</html>
